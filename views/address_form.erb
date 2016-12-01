@@ -1,0 +1,26 @@
+<h2>Enter a mailing address for <%= @contact.first_name() %> below:</h2>
+
+<form class="well" action="/new_address" method="post">
+
+  <input id="contact_id" name="contact_id" type="hidden" value='<%= @contact.id() %>'>
+
+  <label for='street'>Street Address:</label>
+  <input id='street' name='street' type='text'><br>
+
+  <label for='city'>City:</label>
+  <input id='city' name='city' type='text'>
+
+  <label for='state'>State:</label>
+  <input id='state' name='state' type='text'>
+
+  <label for='zip'>Zip Code:</label>
+  <input id='zip' name='zip' type='text'>
+
+  <select class="form-control form-group" name="type" id="type">
+    <option>Home</option>
+    <option>Work</option>
+    <option>Other</option>
+  </select>
+
+  <button type="submit" class="btn btn-primary">Add Address</button>
+</form>

@@ -1,0 +1,20 @@
+<h1 class="jumbotron"><%= @contact.first_name + ' ' + @contact.last_name %></h1>
+<h2><%= @contact.job_title + ' at ' + @contact.company %></h2>
+<% @contact.addresses().each() do |address| %>
+  <div class="panel panel-default">
+    <h3 class="panel-heading"><%= address.type() %> Address:</h3>
+    <p><%= address.street() %></p>
+    <p><%= address.city() + ', ' + address.state() + ' ' + address.zip() %></p>
+  </div>
+<% end %>
+<% @contact.phone_numbers().each() do |number| %>
+  <div class="well">
+    <h3><%= number.type() %> phone:</h3>
+    <p><%= number.area_code() + ' ' + number.number() %></p>
+  </div>
+<% end %>
+<a href="/contact/<%= @contact.id() %>/mailing_address"><button type="button" name="mailing_address">Add a mailing address</button></a>
+<a href="/contact/<%= @contact.id() %>/phone_number"><button type="button" name="phone_number">Add a Phone Number</button></a>
+<br>
+<br>
+<a href="/contacts"><button type="button" name="return">Return to Contact List</button></a>

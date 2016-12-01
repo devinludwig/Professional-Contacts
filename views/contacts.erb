@@ -1,0 +1,9 @@
+<h1>Here is your list of contacts:</h1>
+<h2>Click on a name to see detailed contact information.</h2>
+<ul>
+<% @contacts.each() do |contact| %>
+  <li><a href="/contact/<%= contact.id() %>"><%= contact.first_name() + ' ' + contact.last_name() %></a>, <%= contact.company() %>, <%= contact.job_title() %></li>
+<% end %>
+</ul>
+
+<a href="/"><button type="button" name="new">New Contact</button></a>
